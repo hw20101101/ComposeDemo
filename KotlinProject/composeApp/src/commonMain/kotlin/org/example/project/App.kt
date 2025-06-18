@@ -21,8 +21,10 @@ import kotlinproject.composeapp.generated.resources.compose_multiplatform
 @Composable
 @Preview
 fun App() {
+    // 设置应用程序的外观
     MaterialTheme {
         var showContent by remember { mutableStateOf(false) }
+        // 控制应用程序的布局
         Column(
             modifier = Modifier
                 .safeContentPadding()
@@ -30,11 +32,13 @@ fun App() {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
+                Text("Click me! 2")
             }
+            // 使用动画显示和隐藏Image
             AnimatedVisibility(showContent) {
                 val greeting = remember { Greeting().greet() }
                 Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    // 加载存储在XML资源中的矢量图标
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
                     Text("Compose: $greeting")
                 }
